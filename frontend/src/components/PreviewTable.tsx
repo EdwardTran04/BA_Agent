@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ControlSpec, BA_API } from '../utils/api';
 
 interface PreviewTableProps {
@@ -17,6 +17,7 @@ export default function PreviewTable({
   onDocxGenerated,
 }: PreviewTableProps) {
   const [exporting, setExporting] = useState(false);
+  const [hasAutoExported, setHasAutoExported] = useState(false);
 
   const handleExportDocx = async () => {
     setExporting(true);
@@ -30,6 +31,13 @@ export default function PreviewTable({
       setExporting(false);
     }
   };
+
+  useEffect(() => {
+    if (!docxPath && !exporting && !hasAutoExported && controls.length > 0) {
+      setHasAutoExported(true);
+      handleExportDocx();
+    }
+  }, [docxPath, exporting, hasAutoExported, controls.length, sessionId]);
 
   const downloadUrl = BA_API.getDownloadUrl(sessionId);
 

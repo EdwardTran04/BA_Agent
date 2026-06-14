@@ -1,0 +1,30 @@
+# Python / Backend
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+.venv/
+venv/
+ENV/
+env/
+backend/.env
+backend/ba_agent.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Node / NextJS
+**/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env*
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# OS & Logs
+.DS_Store
+*.log
+*.pem
+
+# Generated specifications (DOCX output)
+download/*
+!download/.gitkeep
