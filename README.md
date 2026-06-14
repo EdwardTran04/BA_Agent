@@ -9,12 +9,12 @@
 ---
 
 ## 📋 Mục lục
-- [Giới thiệu](#-giới thiệu)
-- [Tính năng](#-tính năng)
-- [Công nghệ sử dụng](#-công nghệ sử dụng)
-- [Cài đặt](#-cài đặt)
-- [Hướng dẫn sử dụng](#-hướng dẫn sử dụng)
-- [Cấu trúc dự án](#-cấu trúc-dự-án)
+- [Giới thiệu](#-giới-thiệu)
+- [Tính năng](#-tính-năng)
+- [Công nghệ sử dụng](#-công-nghệ-sử-dụng)
+- [Cài đặt](#-cài-đặt)
+- [Hướng dẫn sử dụng](#-hướng-dẫn-sử-dụng)
+- [Cấu trúc dự án](#-cấu-trúc-dự-án)
 - [API Documentation](#-api-documentation)
 - [Roadmap](#-roadmap)
 - [Đóng góp](#-đóng-góp)
