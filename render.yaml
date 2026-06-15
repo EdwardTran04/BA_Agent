@@ -1,0 +1,23 @@
+# render.yaml - Render Blueprint for BA Agent Backend
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: ba-agent-backend
+    runtime: python
+    region: singapore  # Gần Việt Nam nhất
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false  # Sẽ nhập thủ công từ Neon.tech
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false  # Tùy chọn - để trống sẽ dùng Mock Simulator
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: PYTHON_VERSION
+        value: 3.13.5

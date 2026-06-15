@@ -7,10 +7,19 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from sqlalchemy.engine import make_url
 
 # Create engine
+# For SQLite: need check_same_thread=False
+# For PostgreSQL (Neon.tech): need sslmode=require for cloud connections
+def _build_connect_args():
+    if config.DATABASE_URL.startswith("sqlite"):
+        return {"check_same_thread": False}
+    elif config.DATABASE_URL.startswith("postgresql") or config.DATABASE_URL.startswith("postgres"):
+        # Neon.tech and other cloud PostgreSQL services require SSL
+        return {"sslmode": "require"}
+    return {}
+
 engine = create_engine(
     config.DATABASE_URL,
-    # connect_args={"check_same_thread": False} is required only for SQLite
-    connect_args={"check_same_thread": False} if config.DATABASE_URL.startswith("sqlite") else {}
+    connect_args=_build_connect_args()
 )
 
 # Create sessionmaker
